@@ -2111,7 +2111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.948649, b: 0.7971698, a: 1}
+  m_Color: {r: 1, g: 0.8016017, b: 0.79607844, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3299,10 +3299,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.9302118, b: 0.8352941, a: 1}
+    m_NormalColor: {r: 1, g: 0.7122642, b: 0.7293086, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.99215686, g: 0.49411765, b: 0.23921569, a: 1}
+    m_SelectedColor: {r: 0.9607844, g: 0.34901962, b: 0.38431376, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3417,10 +3417,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.9302118, b: 0.8352941, a: 1}
+    m_NormalColor: {r: 0.9607844, g: 0.6862745, b: 0.69803923, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.99215686, g: 0.49411765, b: 0.23921569, a: 1}
+    m_SelectedColor: {r: 1, g: 0.33490568, b: 0.3799379, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4631,6 +4631,10 @@ PrefabInstance:
     - target: {fileID: 1577782316862802436, guid: 5feddc7ee41c67d47b87641e9cc6f768, type: 3}
       propertyPath: m_Name
       value: World Save Game Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150520432701239626, guid: 5feddc7ee41c67d47b87641e9cc6f768, type: 3}
+      propertyPath: worldSceneIndex
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

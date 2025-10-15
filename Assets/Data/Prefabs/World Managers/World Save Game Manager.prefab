@@ -44,4 +44,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71fe020033f960840b92b991122c624e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  worldSceneIndex: 1
+  player: {fileID: 0}
+  saveDataManager: {fileID: 0}
+  saveGame: 0
+  loadGame: 0
+  worldSceneIndex: 2
+  currentCharacterSlotBeingUsed: 0
+  currentCharacterData:
+    characterName: Character
+    secondsPlayed: 0
+    xPosition: 0
+    yPosition: 0
+    zPosition: 0
+    durability: 0
+    coolant: 0
+    currentHealth: 0
+    currentOverheating: 0
+  characterSlot01:
+    characterName: Character
+    secondsPlayed: 0
+    xPosition: 0
+    yPosition: 0
+    zPosition: 0
+    durability: 0
+    coolant: 0
+    currentHealth: 0
+    currentOverheating: 0
+  characterSlot02:
+    characterName: Character
+    secondsPlayed: 0
+    xPosition: 0
+    yPosition: 0
+    zPosition: 0
+    durability: 0
+    coolant: 0
+    currentHealth: 0
+    currentOverheating: 0
+  characterSlot03:
+    characterName: Character
+    secondsPlayed: 0
+    xPosition: 0
+    yPosition: 0
+    zPosition: 0
+    durability: 0
+    coolant: 0
+    currentHealth: 0
+    currentOverheating: 0
+  characterSlot04:
+    characterName: Character
+    secondsPlayed: 0
+    xPosition: 0
+    yPosition: 0
+    zPosition: 0
+    durability: 0
+    coolant: 0
+    currentHealth: 0
+    currentOverheating: 0
+  characterSlot05:
+    characterName: Character
+    secondsPlayed: 0
+    xPosition: 0
+    yPosition: 0
+    zPosition: 0
+    durability: 0
+    coolant: 0
+    currentHealth: 0
+    currentOverheating: 0

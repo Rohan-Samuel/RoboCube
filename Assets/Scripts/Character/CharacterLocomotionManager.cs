@@ -76,7 +76,7 @@ public class CharacterLocomotionManager : MonoBehaviour
         
     }
 
-    protected void OnDrawGizmosSelected()
+   /* protected void OnDrawGizmosSelected()
     {
         Vector3 frontRight = new Vector3(characterWidth, 0, characterWidth);
         Vector3 frontLeft = new Vector3(-characterWidth , 0, characterWidth);
@@ -87,5 +87,5 @@ public class CharacterLocomotionManager : MonoBehaviour
         Gizmos.DrawSphere(character.transform.position + frontLeft, groundcheckSphereRadius);
         Gizmos.DrawSphere(character.transform.position + backLeft, groundcheckSphereRadius);
         Gizmos.DrawSphere(character.transform.position + backRight, groundcheckSphereRadius);
-    }
+    }*/
 }
