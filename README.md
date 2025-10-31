@@ -8,7 +8,7 @@ If you'd like to try out the current version of the game, you can go to 'Release
 
 ---
 
-## ⚙️ Overview  :sparkles:
+## ⚙️ Overview  
 **RoboCube** is a 3D narrative exploration game set in a decaying future built by machines.  
 You awaken as a lone robot in a forgotten network, uncovering fragments of data and memory that reveal what happened to the world.
 
