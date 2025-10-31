@@ -16,15 +16,15 @@ The game combines **atmospheric storytelling**, **environmental puzzles**, and *
 
 ---
 
-## 🧠 Core Features  
-- 🪫 **Integrity System** — An RPG reminiscent stat line
-- ⚡ **Cortex Terminals** — Rest points that store your consciousness and allow system upgrades.  
-- 🧩 **Environmental Data Fragments** — Pieces of lost history scattered across the network.  
+## Core Features  
+- **Integrity System** — An RPG reminiscent stat line
+- **Cortex Terminals** — Rest points that store your consciousness and allow system upgrades.  
+- **Environmental Data Fragments** — Pieces of lost history scattered across the network.  
 
 
 ---
 
-## 🛠️ Tech Stack  
+## Tech Stack  
 
 | Tool | Purpose |
 |------|----------|
@@ -37,20 +37,20 @@ The game combines **atmospheric storytelling**, **environmental puzzles**, and *
 
 ---
 
-## 🧩 Development Progress  
+##  Development Progress  
 **Current Status:** Pre-Alpha  
 
 | Feature | Status |
 |----------|---------|
 | Core Movement | ✅ Complete |
-| Weapon Mechanics  | 🧪 Testing |
-| Save Terminals | 🧱 Prototype complete |
-| Environment Layout | 🚧 In progress |
-| Narrative System | 🕓 Planned |
+| Weapon Mechanics  | Testing |
+| Save Terminals | Prototype complete |
+| Environment Layout | In progress |
+| Narrative System | Planned |
 
 ---
 
-## 🎨 Visuals  
+## Visuals  
 
 ![Gameplay Mockup](./media/mockup_01.png)  
 ![Cortex Terminal Render](./media/terminal_render.png)
