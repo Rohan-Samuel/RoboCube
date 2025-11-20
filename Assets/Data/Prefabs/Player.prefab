@@ -193,7 +193,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3916225442482396163}
-  - component: {fileID: 7797970794310987691}
   m_Layer: 0
   m_Name: C_Head
   m_TagString: Untagged
@@ -216,20 +215,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5417309936497360948}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7797970794310987691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 479055861521661585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9861c995b611f14f84df9c7aacf62f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponModelInstantiationSlot
-  weaponSlot: 0
-  currentWeaponModel: {fileID: 0}
 --- !u!1 &709554044610699887
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 175271051531338943}
+  - component: {fileID: 3300732529308589733}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -549,6 +535,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5062162882547167973}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3300732529308589733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414607053763582736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9861c995b611f14f84df9c7aacf62f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponModelInstantiationSlot
+  weaponSlot: 0
+  currentWeaponModel: {fileID: 0}
 --- !u!1 &1423597411318822652
 GameObject:
   m_ObjectHideFlags: 0
@@ -5939,7 +5939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03870eb6f00063b488cba2c8a1bedb52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  currentWeapon: {fileID: 0}
+  currentWeapon: {fileID: 11400000, guid: 4af6075c000f3294ca2421b8b8a65f2c, type: 2}
 --- !u!114 &6466676136711525672
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemDescription: A basic turret attachment
   itemID: 0
-  weaponModel: {fileID: 5009470645621393, guid: 740154ba88632064bb95b4ce69edffc3, type: 3}
+  weaponModel: {fileID: 5981582923912207011, guid: a4ce6dd6bc6a6ab4fbd5591a7adc84cd, type: 3}
   requiredLevel: 0
   physicalDamage: 10
   poiseDamage: 10
