@@ -46,10 +46,6 @@ public class PlayerAnimatorManager : CharacterAnimatorManager
 
 
         Rig rig = headAim.GetComponentInParent<Rig>();
-        Debug.Log("Angle to Target: " + angleToTarget);
-
-
-        Debug.Log(rig.weight);
 
         if (angleToTarget > 140f)
         {

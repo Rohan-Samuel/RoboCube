@@ -52,7 +52,7 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
     private void GetVerticalAndHorizontalInputs()
     {
         verticalMovement = PlayerInputManager.instance.verticalInput;
-        horizontalMovement = PlayerInputManager.instance.horizontalInput;
+        horizontalMovement = PlayerInputManager.instance.horizontal_Input;
         moveAmount = PlayerInputManager.instance.moveAmount;
 
         // CLAMP THE MOVEMENTS for animation
@@ -106,7 +106,7 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
             Vector3 freeFallDirection;
 
             freeFallDirection = PlayerCamera.instance.transform.forward * PlayerInputManager.instance.verticalInput;
-            freeFallDirection += PlayerCamera.instance.transform.right * PlayerInputManager.instance.horizontalInput;
+            freeFallDirection += PlayerCamera.instance.transform.right * PlayerInputManager.instance.horizontal_Input;
             freeFallDirection.y = 0;
 
             player.characterController.Move(freeFallDirection * freeFallSpeed * Time.deltaTime);
@@ -116,7 +116,7 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
             Vector3 freeFallRotation = Vector3.zero;
 
             freeFallRotation = PlayerCamera.instance.cameraObject.transform.forward * PlayerInputManager.instance.verticalInput;
-            freeFallRotation += PlayerCamera.instance.cameraObject.transform.right * PlayerInputManager.instance.horizontalInput;
+            freeFallRotation += PlayerCamera.instance.cameraObject.transform.right * PlayerInputManager.instance.horizontal_Input;
             freeFallRotation.Normalize();
             freeFallRotation.y = 0;
 
@@ -244,7 +244,7 @@ public class PlayerLocomotionManager : CharacterLocomotionManager
         player.currentOverheating += jumpOverheatCost;
 
         jumpDirection = PlayerCamera.instance.cameraObject.transform.forward * PlayerInputManager.instance.verticalInput;
-        jumpDirection += PlayerCamera.instance.cameraObject.transform.right * PlayerInputManager.instance.horizontalInput;
+        jumpDirection += PlayerCamera.instance.cameraObject.transform.right * PlayerInputManager.instance.horizontal_Input;
         jumpDirection.y = 0;
 
         if (jumpDirection != Vector3.zero)

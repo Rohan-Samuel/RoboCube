@@ -6,6 +6,7 @@ public class WeaponItem : Item
 {
     [Header("Weapon Model")]
     public GameObject weaponModel;
+    public Transform weaponModelAim;
 
     [Header("Weapon requirements")]
     public int requiredLevel = 0;
@@ -26,7 +27,8 @@ public class WeaponItem : Item
     //light attack stamina cost
     //heavy attack stamina cost
 
-    //Item based action (r1, r2, l1, l2)
+    [Header("Actions")]
+    public WeaponItemAction r1Action;
 
 
 

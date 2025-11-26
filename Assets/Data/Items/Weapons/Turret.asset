@@ -21,3 +21,4 @@ MonoBehaviour:
   physicalDamage: 10
   poiseDamage: 10
   baseStaminaCost: 10
+  r1Action: {fileID: 11400000, guid: 0199969aad86d60498cad79bb9d4e6a2, type: 2}

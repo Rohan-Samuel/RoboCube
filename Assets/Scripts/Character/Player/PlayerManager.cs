@@ -13,8 +13,9 @@ public class PlayerManager : CharacterManager
     [HideInInspector] public PlayerLocomotionManager playerLocomotionManager;
     [HideInInspector] public PlayerStatsManager playerStatsManager;
     [HideInInspector] public PlayerInventoryManager playerInventoryManager;
+    [HideInInspector] public PlayerCombatManager playerCombatManager;
 
-    
+
 
     public FixedString64Bytes characterName = "Character";
 
@@ -38,6 +39,7 @@ public class PlayerManager : CharacterManager
         playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerInventoryManager = GetComponent<PlayerInventoryManager>();
+        playerCombatManager = GetComponent<PlayerCombatManager>();
 
         //maxHealth = playerStatsManager.CalculateHealthBasedOnDurabilityLevel(durability);
         //currentHealth = maxHealth;

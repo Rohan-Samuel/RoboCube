@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
@@ -21,6 +23,7 @@ public class CharacterManager : MonoBehaviour
     public bool isSprinting = false;
     public bool isGrounded = true;
     public bool isJumping = false;
+    public bool isLockedOn = false;
 
     [Header("Stats")]
     public int durability = 10;
@@ -42,6 +45,11 @@ public class CharacterManager : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         characterEffectsManager = GetComponent<CharacterEffectsManager>();
         characterAnimatorManager = GetComponent<CharacterAnimatorManager>();
+    }
+
+    protected virtual void Start()
+    {
+        IgnoreMyOwnColliders();
     }
 
     protected virtual void Update()
@@ -78,6 +86,35 @@ public class CharacterManager : MonoBehaviour
     public virtual void ReviveCharacter()
     {
        
+    }
+
+    protected virtual void IgnoreMyOwnColliders()
+    {
+        Collider characterControllerCollider = GetComponent<Collider>();
+        Collider[] damageableCharacterColliders = GetComponentsInChildren<Collider>();
+        List<Collider> ignoreColliders = new List<Collider>();
+
+
+        //Add all of our damageable character colliders, to the list of colliders to ignore
+        foreach (var collider in damageableCharacterColliders)
+        {
+            ignoreColliders.Add(collider);
+        }
+
+        //adds the character controller collider to the ignore list
+        ignoreColliders.Add(characterControllerCollider);
+
+        //goes through each collider in the ignore list, and sets it to ignore collisions with every other collider in the list
+        foreach (var collider in ignoreColliders)
+        {
+            foreach (var otherCollider in ignoreColliders)
+            {
+                if (collider != otherCollider)
+                {
+                    Physics.IgnoreCollision(collider, otherCollider, true);
+                }
+            }
+        }
     }
 
 

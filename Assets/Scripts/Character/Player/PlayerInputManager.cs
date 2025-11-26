@@ -14,18 +14,22 @@ public class PlayerInputManager : MonoBehaviour
     public float cameraVerticalInput;
     public float cameraHorizontalInput;
 
+    [Header("LOCK ON INPUT")]
+    [SerializeField] bool lockOn_Input;
+
     [Header("PLAYER MOVEMENT INPUT")]
     [SerializeField] Vector2 movementInput;
     public float verticalInput;
-    public float horizontalInput;
+    public float horizontal_Input;
     public float moveAmount;
 
     [Header("PLAYER ACTION INPUT")]
-    [SerializeField] bool dodgeInput = false;
-    [SerializeField] bool sprintInput = false;
-    [SerializeField] bool jumpInput = false;
+    [SerializeField] bool dodge_Input = false;
+    [SerializeField] bool sprint_Input = false;
+    [SerializeField] bool jump_Input = false;
+    [SerializeField] bool R1_Input = false;
 
-
+    
 
 
 
@@ -53,13 +57,17 @@ public class PlayerInputManager : MonoBehaviour
             //for mouse movement (not perfect)
             //playerControls.PlayerCamera.Movement1.performed += i => cameraInput = i.ReadValue<Vector2>();
 
-            playerControls.PlayerActions.Dodge.performed += i => dodgeInput = true;
-            playerControls.PlayerActions.Jump.performed += i => jumpInput = true;
+            playerControls.PlayerActions.Dodge.performed += i => dodge_Input = true;
+            playerControls.PlayerActions.Jump.performed += i => jump_Input = true;
+            playerControls.PlayerActions.R1.performed += i => R1_Input = true;
+
+            //Lock ON
+            playerControls.PlayerActions.LockOn.performed += i => lockOn_Input = true;
 
             //Holding the input sets the bool to true
-            playerControls.PlayerActions.Sprint.performed += i => sprintInput = true;
+            playerControls.PlayerActions.Sprint.performed += i => sprint_Input = true;
             //realsing the input changes the bool to false
-            playerControls.PlayerActions.Sprint.canceled += i => sprintInput = false;
+            playerControls.PlayerActions.Sprint.canceled += i => sprint_Input = false;
 
         }
 
@@ -78,7 +86,20 @@ public class PlayerInputManager : MonoBehaviour
         HandleDodgeInput();
         HandleSprintInput();
         HandleJumpInput();
+        HandleR1Input();
+        HandleLockOnInput();
 
+    }
+
+    //Lock On
+
+    private void HandleLockOnInput()
+    {
+        if (lockOn_Input)
+        {
+            lockOn_Input = false;
+            //Attempt to Lock on
+        }
     }
 
     //Movement
@@ -86,10 +107,10 @@ public class PlayerInputManager : MonoBehaviour
     private void HandlePlayerMovementInput()
     {
         verticalInput = movementInput.y;
-        horizontalInput = movementInput.x;
+        horizontal_Input = movementInput.x;
 
         //Returns the absolute number
-        moveAmount = Mathf.Clamp01(Mathf.Abs(verticalInput) + Mathf.Abs(horizontalInput));
+        moveAmount = Mathf.Clamp01(Mathf.Abs(verticalInput) + Mathf.Abs(horizontal_Input));
 
 
         //Clamp the values at 0, 0.5, or 1
@@ -122,9 +143,9 @@ public class PlayerInputManager : MonoBehaviour
 
     private void HandleDodgeInput()
     {
-        if (dodgeInput)
+        if (dodge_Input)
         {
-            dodgeInput = false;
+            dodge_Input = false;
 
             //future: do dothing if menu or ui is open (maybe)
 
@@ -134,7 +155,7 @@ public class PlayerInputManager : MonoBehaviour
 
     private void HandleSprintInput()
     {
-        if (sprintInput)
+        if (sprint_Input)
         {
             player.playerLocomotionManager.HandleSprinting();
         }
@@ -147,14 +168,25 @@ public class PlayerInputManager : MonoBehaviour
 
     private void HandleJumpInput()
     {
-        if (jumpInput)
+        if (jump_Input)
         {
-            jumpInput = false;
+            jump_Input = false;
 
             //Disable while UI is open
 
             //attempt to jump
             player.playerLocomotionManager.AttemptToPerformJump();
+        }
+    }
+
+    private void HandleR1Input()
+    {
+        if (R1_Input)
+        {
+            R1_Input = false;
+
+            //Attack
+            player.playerCombatManager.PerformWeaponBasedAction(player.playerInventoryManager.currentWeapon.r1Action, player.playerInventoryManager.currentWeapon);
         }
     }
 }

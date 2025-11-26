@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5898402276596774572}
   m_Layer: 0
-  m_Name: Target1
+  m_Name: Target Direction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,12 +110,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130845650526328314}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.033, z: 0.57}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.008398534, y: -0.0017163898, z: 0.22349972}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8070313755453708187}
+  m_Father: {fileID: 6909350941069627843}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1531333199118830992
 GameObject:
@@ -985,7 +985,7 @@ GameObject:
   - component: {fileID: 4700968574035074934}
   - component: {fileID: 3311696743376890120}
   m_Layer: 0
-  m_Name: pCylinder4
+  m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1095,7 +1095,8 @@ Transform:
   m_LocalPosition: {x: -0.33236796, y: -0.004348012, z: 0.0067821657}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5898402276596774572}
   m_Father: {fileID: 1960185795971630930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7256516393971223841
@@ -1147,7 +1148,6 @@ Transform:
   - {fileID: 2654331863368740679}
   - {fileID: 4525595765512626458}
   - {fileID: 3209070294638016009}
-  - {fileID: 5898402276596774572}
   m_Father: {fileID: 8470518494867667773}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4478600807113392236
