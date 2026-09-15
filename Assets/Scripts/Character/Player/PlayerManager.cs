@@ -6,6 +6,7 @@ public class PlayerManager : CharacterManager
 {
     [Header("Debug Menu")]
     [SerializeField] bool respawnCharacter = false;
+    [SerializeField] bool switchWeapon = false;
 
     public static PlayerManager instance;
     [HideInInspector] public PlayerManager playerManager;
@@ -13,7 +14,9 @@ public class PlayerManager : CharacterManager
     [HideInInspector] public PlayerLocomotionManager playerLocomotionManager;
     [HideInInspector] public PlayerStatsManager playerStatsManager;
     [HideInInspector] public PlayerInventoryManager playerInventoryManager;
+    [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
     [HideInInspector] public PlayerCombatManager playerCombatManager;
+
 
 
 
@@ -39,22 +42,27 @@ public class PlayerManager : CharacterManager
         playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerInventoryManager = GetComponent<PlayerInventoryManager>();
+        playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
         playerCombatManager = GetComponent<PlayerCombatManager>();
 
-        //maxHealth = playerStatsManager.CalculateHealthBasedOnDurabilityLevel(durability);
-        //currentHealth = maxHealth;
-        //PlayerUIManager.instance.playerUIHudManager.SetMaxHealthValue(maxHealth);
-
-        //maxOverheating = playerStatsManager.CalculateOverheatingBasedOnCoolantLevel(coolant);
-        //currentOverheating = 0;
-        //PlayerUIManager.instance.playerUIHudManager.SetMaxOverheatValue(maxOverheating);
 
 
 
+
+
+        // Do not load save data here - other managers (SaveDataManager, UI managers etc.) may not have
+        // run their Awake yet. Defer loading to Start which runs after all Awake calls.
+
+
+
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        // Load save data after all Awake() methods have executed so singletons are initialized.
         LoadGameDataFromSaveDataManager();
-
-
-
     }
 
     
@@ -74,6 +82,7 @@ public class PlayerManager : CharacterManager
 
         DebugMenu();
 
+        
     }
 
     protected override void LateUpdate()
@@ -146,15 +155,43 @@ public class PlayerManager : CharacterManager
 
     public void SetNewMaxHealthValue(int newDurability)
     {
+        if (playerStatsManager == null)
+        {
+            Debug.LogWarning("PlayerStatsManager is null in SetNewMaxHealthValue");
+            return;
+        }
+
         maxHealth = playerStatsManager.CalculateHealthBasedOnDurabilityLevel(newDurability);
-        PlayerUIManager.instance.playerUIHudManager.SetMaxHealthValue(maxHealth);
+
+        if (PlayerUIManager.instance != null && PlayerUIManager.instance.playerUIHudManager != null)
+        {
+            PlayerUIManager.instance.playerUIHudManager.SetMaxHealthValue(maxHealth);
+        }
+        else
+        {
+            Debug.LogWarning("PlayerUIHudManager not available when setting max health");
+        }
        // currentHealth = maxHealth; we are updating this live, which breaks this. It shouldn't be an issue.
     }
 
     public void SetNewMaxOverheatValue(int newCoolant)
     {
+        if (playerStatsManager == null)
+        {
+            Debug.LogWarning("PlayerStatsManager is null in SetNewMaxOverheatValue");
+            return;
+        }
+
         maxOverheating = playerStatsManager.CalculateOverheatingBasedOnCoolantLevel(newCoolant);
-        PlayerUIManager.instance.playerUIHudManager.SetMaxOverheatValue(maxOverheating);
+
+        if (PlayerUIManager.instance != null && PlayerUIManager.instance.playerUIHudManager != null)
+        {
+            PlayerUIManager.instance.playerUIHudManager.SetMaxOverheatValue(maxOverheating);
+        }
+        else
+        {
+            Debug.LogWarning("PlayerUIHudManager not available when setting max overheat");
+        }
         //currentOverheating = 0; we are updating this live, which breaks this. It shouldn't be an issue.
     }
 
@@ -178,5 +215,20 @@ public class PlayerManager : CharacterManager
             respawnCharacter = false;
             ReviveCharacter();
         }
+
+        if (switchWeapon)
+        {
+            switchWeapon = false;
+            playerEquipmentManager.SwitchWeapon();
+        }
     }
+
+    public void OnWeaponIDChange(int newID)
+    {
+        WeaponItem newWeapon = Instantiate(WorldItemDatabase.Instance.GetWeaponItemByID(newID));
+        playerInventoryManager.currentWeapon = newWeapon;
+        playerEquipmentManager.LoadWeapon();
+    }
+
+
 }

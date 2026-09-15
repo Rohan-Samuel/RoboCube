@@ -63,7 +63,7 @@ public class SyncAimTarget : MonoBehaviour
             // If it has a slot, just replace the transform at index 0
             followerSources.SetTransform(0, currentTarget);
             // Optional: Ensure weight is 1
-            followerSources.SetWeight(0, 1f);
+            //followerSources.SetWeight(0, 1f);
         }
 
         // 4. Apply changes back to the constraint

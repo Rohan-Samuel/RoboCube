@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -6,13 +7,13 @@ public class WeaponItem : Item
 {
     [Header("Weapon Model")]
     public GameObject weaponModel;
-    public Transform weaponModelAim;
+
 
     [Header("Weapon requirements")]
     public int requiredLevel = 0;
 
     [Header("Weapon Base Damage")]
-    public int physicalDamage = 0;
+    public int physicalDamage = 10;
 
     [Header("Weapon Base Poise Damage")]
     public float poiseDamage = 10;
@@ -22,13 +23,14 @@ public class WeaponItem : Item
     //heavy attack modifiers
 
     [Header("Stmaina Costs")]
-    public int baseStaminaCost = 10;
+    public int baseStaminaCost = 2;
     //running attack stamina cost
     //light attack stamina cost
     //heavy attack stamina cost
 
     [Header("Actions")]
     public WeaponItemAction r1Action;
+
 
 
 

@@ -41,6 +41,9 @@ public class PlayerAnimatorManager : CharacterAnimatorManager
 
     private void RotationDamping()
     {
+        //safety checks
+        if (headAim.data.sourceObjects.Count == 0) return;
+
         Vector3 directionToTarget = headAim.data.sourceObjects[0].transform.position - player.transform.position;
         float angleToTarget = Vector3.Angle(player.transform.forward, directionToTarget);
 

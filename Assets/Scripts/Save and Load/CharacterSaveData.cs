@@ -16,8 +16,8 @@ public class CharacterSaveData
     public float zPosition;
 
     [Header("Stats")]
-    public int durability;
-    public int coolant;
+    public int durability = 10;
+    public int coolant = 10;
 
     [Header("Resources")]
     public float currentHealth;

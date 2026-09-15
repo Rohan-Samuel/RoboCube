@@ -64,6 +64,11 @@ public class CharacterStatsManager : MonoBehaviour
 
     public virtual void HandleStatUpdates()
     {
+        if (player == null)
+        {
+            Debug.LogWarning("CharacterStatsManager player reference is null in HandleStatUpdates");
+            return;
+        }
         //Update total amount of resources when stat changes
         player.SetNewMaxHealthValue(player.durability);
         player.SetNewMaxOverheatValue(player.coolant);
@@ -71,8 +76,11 @@ public class CharacterStatsManager : MonoBehaviour
         //PlayerManager.instance.maxOverheating = CalculateOverheatingBasedOnCoolantLevel(player.coolant);
 
         //Updates UI Stat bars when stat changes
-        PlayerUIManager.instance.playerUIHudManager.SetNewHealthValue(player.currentHealth);
-        PlayerUIManager.instance.playerUIHudManager.SetNewOverheatValue(player.currentOverheating);
+        if (PlayerUIManager.instance != null && PlayerUIManager.instance.playerUIHudManager != null)
+        {
+            PlayerUIManager.instance.playerUIHudManager.SetNewHealthValue(player.currentHealth);
+            PlayerUIManager.instance.playerUIHudManager.SetNewOverheatValue(player.currentOverheating);
+        }
 
         RegenerateOverheating();
         ResetOverheatRegenTimer();
