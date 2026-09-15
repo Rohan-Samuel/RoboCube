@@ -7,8 +7,10 @@
 ![Unity](https://img.shields.io/badge/Unity-6000.5.9f1-black)
 ![Language](https://img.shields.io/badge/C%23-100%25-239120)
 
-<!-- TODO: drop a short gameplay GIF here (turret tracking + overheat bar is the best 6 seconds).
-     Put it in ./media/ and reference it as ![RoboCube](./media/gameplay.gif) -->
+![Turret tracking and the overheat bar filling, then decaying as the player backs off](./media/gameplay.gif)
+
+*Six seconds of the core loop: the turret tracks while the heat bar (red, top-left) fills, then
+decays once fire stops. [Full-quality clip](./media/gameplay.mp4).*
 
 You wake as a lone machine in a decaying network built by other machines, piecing together what
 happened to the world from the data fragments left behind. There's no stamina bar. Staying aggressive
